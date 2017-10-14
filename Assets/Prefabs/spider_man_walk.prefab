@@ -396,10 +396,10 @@ GameObject:
   - component: {fileID: 4147455458821664}
   - component: {fileID: 95215239577914494}
   - component: {fileID: 143312817059048970}
-  - component: {fileID: 114891435307932692}
-  - component: {fileID: 114358728525138990}
   - component: {fileID: 114272836438816270}
-  - component: {fileID: 114368415385239102}
+  - component: {fileID: 54638365930270998}
+  - component: {fileID: 114598035330034436}
+  - component: {fileID: 136229109935406268}
   m_Layer: 0
   m_Name: spider_man_walk
   m_TagString: Player
@@ -2127,6 +2127,21 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!54 &54638365930270998
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351787347906248}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!81 &81643477634136766
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2173,42 +2188,9 @@ MonoBehaviour:
   _hp: {fileID: 0}
   _killCount: {fileID: 0}
   _gameOverPanel: {fileID: 0}
+  _backHP: {fileID: 0}
+  _backKillCount: {fileID: 0}
   _animator: {fileID: 95215239577914494}
---- !u!114 &114358728525138990
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351787347906248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b167d00b3108411a8a963cba5ddde1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 4009228993967392}
-  distance: 6
-  height: 3
-  angularSmoothLag: 0.1
-  angularMaxSpeed: 100
-  heightSmoothLag: 0.1
-  snapSmoothLag: 0.1
-  snapMaxSpeed: 1000
-  clampHeadPositionScreenSpace: 1
-  lockCameraTimeout: 0.1
---- !u!114 &114368415385239102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351787347906248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d2d0b8406a28743b946a940ba0c30a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  sensitivity: 2
-  eyes: {fileID: 1863281298320608}
 --- !u!114 &114377168526863230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2221,36 +2203,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1141811978636108, guid: 741d2ac41552980499c18bdbaf375f4b, type: 2}
---- !u!114 &114891435307932692
+--- !u!114 &114598035330034436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351787347906248}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5ac211a643e447ca78c2d794a16381, type: 3}
+  m_Script: {fileID: 11500000, guid: c87689609119e844da8807aeb0da044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 0}
-  walkAnimation: {fileID: 0}
-  runAnimation: {fileID: 0}
-  jumpPoseAnimation: {fileID: 0}
-  walkMaxAnimationSpeed: 1
-  trotMaxAnimationSpeed: 1
-  runMaxAnimationSpeed: 1
-  jumpAnimationSpeed: 1.15
-  landAnimationSpeed: 1
-  walkSpeed: 8
-  trotSpeed: 12
-  runSpeed: 16
-  inAirControlAcceleration: 3
-  jumpHeight: 1
-  gravity: 20
-  speedSmoothing: 10
-  rotateSpeed: 500
-  trotAfterSeconds: 3
-  canJump: 1
+  leftController: {fileID: 0}
+  speedMovements: 18
+  turnSpeed: 75
 --- !u!124 &124947356676300166
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2258,6 +2224,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863281298320608}
   m_Enabled: 1
+--- !u!136 &136229109935406268
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351787347906248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!137 &137696095085656828
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

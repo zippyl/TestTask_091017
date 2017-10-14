@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MainSceneUIController : MonoBehaviour {
 
-    [SerializeField] private GameObject _mainHP, _mainKillCount, _gameOver, _replay, _exit, _gameOverPanel, _pausePanel;
+    [SerializeField] private GameObject _mainHP, _mainKillCount, _gameOver, _replay, _exit,
+        _gameOverPanel, _pausePanel, _pauseButton;
 
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
+        Cursor.visible = true;
         LeanTween.moveLocalX(_mainHP, 180, 0.5f).setEase(LeanTweenType.easeOutBack);
         LeanTween.moveLocalX(_mainKillCount, -120, 0.5f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.moveLocalX(_pauseButton, -380, 0.5f).setEase(LeanTweenType.easeOutBack);
     }
 
     void Update()
@@ -31,5 +34,10 @@ public class MainSceneUIController : MonoBehaviour {
                         .setOnComplete(() => LeanTween.moveLocalY(_exit, -50, 0.5f).setEase(LeanTweenType.easeOutBack)
                             .setIgnoreTimeScale(true)))
             .setIgnoreTimeScale(true);
+    }
+
+    public void Pause()
+    {
+        _pausePanel.SetActive(true);
     }
 }

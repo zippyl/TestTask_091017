@@ -16,9 +16,9 @@ public class MenuUiController : MonoBehaviour
 
         Button btn = _menuPlay.GetComponent<Button>();
         btn.onClick.AddListener(()=> {
-            LeanTween.moveY(_menuText, -65, 0.2f).setEase(LeanTweenType.easeInQuint)
-                .setOnComplete(() => LeanTween.moveY(_menuPlay, -105, 0.2f).setEase(LeanTweenType.easeInQuint)
-                    .setOnComplete(() => LeanTween.moveY(_menuExit, -135, 0.2f).setEase(LeanTweenType.easeInQuint)));
+            LeanTween.moveLocalY(_menuText, -200, 0.2f).setEase(LeanTweenType.easeInQuint)
+                .setOnComplete(() => LeanTween.moveLocalY(_menuPlay, -400, 0.2f).setEase(LeanTweenType.easeInQuint)
+                    .setOnComplete(() => LeanTween.moveLocalY(_menuExit, -450, 0.2f).setEase(LeanTweenType.easeInQuint)));
         });
     }
 }

@@ -38,5 +38,6 @@ public class Bullet : MonoBehaviour
             FindObjectOfType<PlayerController>().UpdateKC();
             Destroy(other.gameObject);
         }
+        Destroy(gameObject);
     }
 }

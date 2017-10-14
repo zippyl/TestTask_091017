@@ -6,17 +6,8 @@ public class Gun : MonoBehaviour {
 
     [SerializeField] private GameObject bullet;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-		if(Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bullet, transform.position, FindObjectOfType<PlayerController>().transform.rotation);
-        }
-	}
+    public void Shoot()
+    {
+        Instantiate(bullet, transform.position, FindObjectOfType<PlayerController>().transform.rotation);
+    }
 }
